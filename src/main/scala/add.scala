@@ -5,6 +5,8 @@ object add extends App {
   println(add)
 
 
+
+
   class addnumbers(n1: Int, n2: Int) {
     def addnumbers = {
 
