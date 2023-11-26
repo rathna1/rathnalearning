@@ -1,10 +1,10 @@
 object forloop extends App{
 
-  val list1=List(1,34,3,4,31,6,67,8,9,10,23)
+""
 
-  val evennumbers=list1.filter(_%2==0)
+  //val evennumbers=list1.filter(_%2==0)
 
-  println(evennumbers)
+ // println(evennumbers)
 
 
 

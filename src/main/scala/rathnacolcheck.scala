@@ -1,37 +1,41 @@
 import org.apache.spark.sql.SparkSession
 import java.io.FileWriter
-val dbname = "market"
+/*
+import org.apache.spark
+
+object rathnacolcheck extends App {
+  val dbname = "market"
 
 
-val tables = spark.catalog.listTables(dbname) //-->dataset
-  .select($"name".as("table_name"), $"database".as("database_name"))
-//---->dataframe
-val table_array = tables.collect()  //--->array[row]
+  val tables = spark.catalog.listTables(dbname) //-->dataset
+    .select($"name".as("table_name"), $"database".as("database_name"))
+  //---->dataframe
+  val table_array = tables.collect() //--->array[row]
 
-table_array.foreach(x=>
-{
-  val dbname=x(1).toString
-  val tbname=x(0).toString
-  println(s"$dbname,$tbname")
-}
-)  //prints all tables in a database
-val dbname = "market"
-
-
-table_array.foreach(x => {
-  val tbname = x(0).toString
-  val dbname = x(1).toString
-  val columns = spark.catalog.listColumns(dbname,tbname).select("name").collect
-  columns.foreach(x=>{ //after lambda put curly braces
-    val columnname=x(0).toString
-    if (columnname.toLowerCase() == "target_week")
-      storelist=storelist.:+(dbname+"."+tbname)
-  })
-  if (storelist.nonEmpty)
-  { println (s"$dbname  $tbname")
+  table_array.foreach(x => {
+    val dbname = x(1).toString
+    val tbname = x(0).toString
+    println(s"$dbname,$tbname")
   }
-  storelist.foreach(println)
-})
+  ) //prints all tables in a database
+  val dbname = "market"
+
+
+  table_array.foreach(x => {
+    val tbname = x(0).toString
+    val dbname = x(1).toString
+    val columns = spark.catalog.listColumns(dbname, tbname).select("name").collect
+    columns.foreach(x => { //after lambda put curly braces
+      val columnname = x(0).toString
+      if (columnname.toLowerCase() == "target_week")
+        storelist = storelist.:+(dbname + "." + tbname)
+    })
+    if (storelist.nonEmpty) {
+      println(s"$dbname  $tbname")
+    }
+    storelist.foreach(println)
+  })
+
 
 val OutputFileLocation="/home/id97/size.csv"
 val fw=new FileWriter(OutputFileLocation)
@@ -142,6 +146,6 @@ spark.catalog.listColumns("customer","walnut_store")
    dbname,tablename,col2
 
 
-
+*/
 
 

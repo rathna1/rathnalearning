@@ -39,9 +39,7 @@ object patternmatching extends App{
 
   val y:Any = "Scala"
 
-  val constants = x  match {
-    case 1 => s"Its a number "
-  }
+
 
 
   //match anything

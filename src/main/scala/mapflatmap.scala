@@ -13,7 +13,9 @@ object mapflatmap extends App{
 
   val colors = List("black","white")
 
-  alphabets.flatMap(a=>numbers.map(n=> n+a))
+  println(alphabets.flatMap(a=>colors.map(n=> n+a)))
+
+
 
   val numberalpha = numbers.flatMap(n => alphabets.map(c => c+n))
 
@@ -23,9 +25,9 @@ object mapflatmap extends App{
   list.foreach(println)
 
 
-  val forcombinations = for {
+    val forcombinations = for {
 
-    n <- numbers if n % 2 ==0
+      n <- numbers if n % 2 ==0
 
     c <- alphabets
 

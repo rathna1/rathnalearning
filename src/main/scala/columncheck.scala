@@ -1,10 +1,13 @@
+
 import org.apache.spark.sql.SparkSession
 
 object columncheck {
   def main(args: Array[String]) {
-    val spark = SparkSession.builder().
-      appName("Column Name check in Tables").
-      enableHiveSupport().getOrCreate()
+
+    val spark = SparkSession.builder.master("local[*]")
+      .appName("Column Name check in Tables")
+        .config("warehouse.dir","/src/main/resources/databases")
+      .enableHiveSupport().getOrCreate()
 /*
     val listOfTables = Seq(
       "ramu.emp",
@@ -14,10 +17,17 @@ object columncheck {
       "ramu.product"
     )*/
 
-    val listofdbs=spark.
+    import spark.implicits._
+
+    val databasename="customer"
+
+    spark.sql(s"create database if not exists customer")
+/*
+
     val listoftables=spark.catalog.listTables(databasename)
 
-    listOfTables.foreach(lt => {
+
+    listoftables.foreach(lt => {
       try {
         val TablesDF = spark.table(lt)
         TablesDF.columns.foreach(c => {
@@ -29,5 +39,9 @@ object columncheck {
         case ex: Throwable => println("Table not found in database ==> " + lt)
       }
     })
+
+    */
   }
+
+
 }
